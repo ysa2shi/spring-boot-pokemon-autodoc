@@ -1,10 +1,10 @@
-package com.example.pring_boot_pokemon_autodoc;
+package com.example;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PringBootPokemonAutodocApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
