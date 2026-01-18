@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+tags:
+- name: Pokemon
+  description: ポケモン情報管理
+paths:
+  /v1/pokemons:
+    get:
+      tags:
+      - Pokemon
+      summary: 全件取得
+      description: 図鑑から全ポケモンを取得します。
+      operationId: allPokemon
+      responses:
+        "200":
+          description: ポケモン情報一覧
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PokemonResponse"
+components:
+  schemas:
+    PokemonResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ポケモンID
+          format: int32
+          example: 1
+        name:
+          type: string
+          description: ポケモン名
+          example: フシギダネ
+        genus:
+          type: string
+          description: ポケモンの分類
+          example: たねポケモン
+        height:
+          type: number
+          description: ポケモンの高さ(m)
+          format: double
+          example: 0.71
+        weight:
+          type: number
+          description: ポケモンの重さ(kg)
+          format: double
+          example: 6.9
+      description: ポケモン情報レスポンス
