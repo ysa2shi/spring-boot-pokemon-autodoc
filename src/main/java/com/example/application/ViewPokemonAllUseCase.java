@@ -1,6 +1,5 @@
 package com.example.application;
 
-import com.example.domain.model.Pokemon;
 import com.example.domain.repository.PokemonRepository;
 import com.example.presentation.response.PokemonResponse;
 import lombok.RequiredArgsConstructor;

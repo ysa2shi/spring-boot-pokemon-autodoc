@@ -1,13 +1,13 @@
 package com.example.presentation;
 
 import com.example.application.ViewPokemonAllUseCase;
-import com.example.domain.model.Pokemon;
 import com.example.presentation.response.PokemonResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
