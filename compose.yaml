@@ -8,8 +8,44 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: pokemondb
-    volumes:
-      - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
       # ホスト側の5432ポートをコンテナの5432ポートにマッピング
       - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U user -d pokemondb" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  flyway:
+    image: flyway/flyway:10
+    volumes:
+      # ホストのSQLフォルダをコンテナ内にマウント
+      - ./src/main/resources/db/migration/common:/flyway/sql
+    environment:
+      FLYWAY_URL: jdbc:postgresql://db:5432/pokemondb
+      FLYWAY_USER: user
+      FLYWAY_PASSWORD: password
+      # 接続リトライの設定（DB起動直後の瞬断対策）
+      FLYWAY_CONNECT_RETRIES: 60
+    # DBのHealthcheckが通ってから実行する
+    depends_on:
+      db:
+        condition: service_healthy
+    command: migrate
+
+  tbls:
+    image: ghcr.io/k1low/tbls
+    container_name: pokemon_tbls
+    volumes:
+      - .:/work
+    working_dir: /work
+    environment:
+      # DBコンテナ名をホスト名に指定
+      TBLS_DSN: "postgres://user:password@db:5432/pokemondb?sslmode=disable"
+      TBLS_DOC_PATH: "docs/schema"
+    depends_on:
+      flyway:
+        condition: service_completed_successfully
+    # 実行後、HTMLを出力して終了する設定
+    command: doc --rm-dist

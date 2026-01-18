@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon API Documentation</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+        .nav { background: #263238; padding: 10px; display: flex; gap: 20px; }
+        .nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .nav a:hover { color: #00bcd4; }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="?ui=redoc">📖 Redoc (閲覧・仕様確認用)</a>
+    <a href="?ui=swagger">⚡ Swagger UI (実行・テスト用)</a>
+</div>
+
+<div id="docs-content"></div>
+
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+<script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+
+<script>
+    const specUrl = './openapi.yaml'; // あなたが生成したYAML
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('ui') || 'redoc';
+
+    if (mode === 'redoc') {
+        // Redoc を初期化
+        Redoc.init(specUrl, {}, document.getElementById('docs-content'));
+    } else {
+        // Swagger UI を初期化
+        SwaggerUIBundle({
+            url: specUrl,
+            dom_id: '#docs-content',
+            presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+            layout: "StandaloneLayout"
+        });
+    }
+</script>
+</body>
+</html>

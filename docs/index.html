@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon App Portal</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 40px; background: #f4f7f6; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+        h1 { color: #333; border-bottom: 2px solid #ef5350; padding-bottom: 10px; }
+        .btn { display: inline-block; background: #ef5350; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; transition: 0.3s; }
+        .btn:hover { background: #d32f2f; }
+        code { background: #eee; padding: 2px 4px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Pokemon API Portal</h1>
+    <p>開発・運用用ドキュメントリンク集</p>
+
+    <ul>
+        <li>
+            <strong>DB Schema (tbls):</strong><br>
+            <a href="schema/schema.json" class="btn">データベース仕様書を見る</a>
+            <p><small>※ブラウザにMarkdown表示拡張を入れると綺麗に見えます</small></p>
+        </li>
+        <br>
+        <li>
+            <strong>API Spec (Swagger):</strong><br>
+            <a href="api/index.html" class="btn" style="background: #4caf50;">Swagger UIを開く</a>
+        </li>
+    </ul>
+
+    <hr>
+    <p><small>最後のアプデ: 2026-01-18</small></p>
+</div>
+
+</body>
+</html>
