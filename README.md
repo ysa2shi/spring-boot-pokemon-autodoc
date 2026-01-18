@@ -18,7 +18,8 @@ Spring BootでのAPI開発において、データベース設計書とAPI設計
     - [SpringDoc OpenAPI](https://springdoc.org/) - API設計書自動生成（OpenAPI 3.0）
 - **ORM**: MyBatis
 - **テスト**: 
-    - Testcontainers (PostgreSQL)
+    - Testcontainers (PostgreSQL) 
+      - （未実装、検討中）
     - JUnit 5
 - **その他**: Lombok, Docker Compose
 

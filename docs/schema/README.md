@@ -9,7 +9,30 @@
 
 ## Relations
 
-![er](schema.svg)
+```mermaid
+erDiagram
+
+
+"public.flyway_schema_history" {
+  integer installed_rank
+  varchar_50_ version
+  varchar_200_ description
+  varchar_20_ type
+  varchar_1000_ script
+  integer checksum
+  varchar_100_ installed_by
+  timestamp_without_time_zone installed_on
+  integer execution_time
+  boolean success
+}
+"public.pokemons" {
+  integer id
+  varchar_100_ name
+  varchar_100_ genus
+  numeric_5_2_ height
+  numeric_5_2_ weight
+}
+```
 
 ---
 

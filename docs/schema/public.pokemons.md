@@ -28,7 +28,18 @@
 
 ## Relations
 
-![er](public.pokemons.svg)
+```mermaid
+erDiagram
+
+
+"public.pokemons" {
+  integer id
+  varchar_100_ name
+  varchar_100_ genus
+  numeric_5_2_ height
+  numeric_5_2_ weight
+}
+```
 
 ---
 

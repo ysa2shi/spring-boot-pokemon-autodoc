@@ -19,6 +19,7 @@ services:
 
   flyway:
     image: flyway/flyway:10
+    container_name: pokemon_db_flyway
     volumes:
       # ホストのSQLフォルダをコンテナ内にマウント
       - ./src/main/resources/db/migration/common:/flyway/sql
@@ -36,7 +37,7 @@ services:
 
   tbls:
     image: ghcr.io/k1low/tbls
-    container_name: pokemon_tbls
+    container_name: pokemon_db_tbls
     volumes:
       - .:/work
     working_dir: /work
@@ -48,4 +49,4 @@ services:
       flyway:
         condition: service_completed_successfully
     # 実行後、HTMLを出力して終了する設定
-    command: doc --rm-dist
+    command: doc --rm-dist --er-format mermaid
