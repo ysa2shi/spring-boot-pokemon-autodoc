@@ -1,9 +1,15 @@
 services:
-  postgres:
-    image: 'postgres:latest'
+  db:
+    image: postgres:16-alpine
+    container_name: pokemon_db
+    restart: always
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      # 環境変数: DB接続に必要な認証情報
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: pokemondb
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
-      - '5432'
+      # ホスト側の5432ポートをコンテナの5432ポートにマッピング
+      - "5432:5432"
