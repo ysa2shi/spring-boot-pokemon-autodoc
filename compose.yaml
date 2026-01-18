@@ -48,5 +48,4 @@ services:
     depends_on:
       flyway:
         condition: service_completed_successfully
-    # 実行後、HTMLを出力して終了する設定
     command: doc --rm-dist --er-format mermaid
