@@ -1,0 +1,161 @@
+{
+  "name": "pokemondb",
+  "tables": [
+    {
+      "name": "public.flyway_schema_history",
+      "type": "BASE TABLE",
+      "columns": [
+        {
+          "name": "installed_rank",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "version",
+          "type": "varchar(50)",
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "varchar(200)",
+          "nullable": false
+        },
+        {
+          "name": "type",
+          "type": "varchar(20)",
+          "nullable": false
+        },
+        {
+          "name": "script",
+          "type": "varchar(1000)",
+          "nullable": false
+        },
+        {
+          "name": "checksum",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "installed_by",
+          "type": "varchar(100)",
+          "nullable": false
+        },
+        {
+          "name": "installed_on",
+          "type": "timestamp without time zone",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "execution_time",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "name": "flyway_schema_history_pk",
+          "def": "CREATE UNIQUE INDEX flyway_schema_history_pk ON public.flyway_schema_history USING btree (installed_rank)",
+          "table": "public.flyway_schema_history",
+          "columns": [
+            "installed_rank"
+          ]
+        },
+        {
+          "name": "flyway_schema_history_s_idx",
+          "def": "CREATE INDEX flyway_schema_history_s_idx ON public.flyway_schema_history USING btree (success)",
+          "table": "public.flyway_schema_history",
+          "columns": [
+            "success"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "flyway_schema_history_pk",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (installed_rank)",
+          "table": "public.flyway_schema_history",
+          "referenced_table": "",
+          "columns": [
+            "installed_rank"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "public.pokemons",
+      "type": "BASE TABLE",
+      "comment": "ポケモン基本マスタ",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "name",
+          "type": "varchar(100)",
+          "nullable": false,
+          "comment": "ポケモン名"
+        },
+        {
+          "name": "genus",
+          "type": "varchar(100)",
+          "nullable": true
+        },
+        {
+          "name": "height",
+          "type": "numeric(5,2)",
+          "nullable": true
+        },
+        {
+          "name": "weight",
+          "type": "numeric(5,2)",
+          "nullable": true
+        }
+      ],
+      "indexes": [
+        {
+          "name": "pokemons_pkey",
+          "def": "CREATE UNIQUE INDEX pokemons_pkey ON public.pokemons USING btree (id)",
+          "table": "public.pokemons",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "name": "pokemons_pkey",
+          "type": "PRIMARY KEY",
+          "def": "PRIMARY KEY (id)",
+          "table": "public.pokemons",
+          "referenced_table": "",
+          "columns": [
+            "id"
+          ]
+        }
+      ]
+    }
+  ],
+  "driver": {
+    "name": "postgres",
+    "database_version": "PostgreSQL 16.9 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit",
+    "meta": {
+      "current_schema": "public",
+      "search_paths": [
+        "user",
+        "public"
+      ],
+      "dict": {
+        "Functions": "Stored procedures and functions"
+      }
+    }
+  }
+}
