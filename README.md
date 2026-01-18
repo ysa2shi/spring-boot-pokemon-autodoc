@@ -56,8 +56,7 @@ docs/                                   # 自動生成されたドキュメン�
 ├── api/
 │   └── openapi.yaml                    # OpenAPI定義（YAML形式）
 ├── schema/                              # DB設計書
-│   ├── public.pokemons.md              # テーブル定義書
-│   ├── public.pokemons.svg             # ER図（SVG）
+│   ├── public.pokemons.md              # テーブル定義書 / ER図（mermaid）
 │   └── schema.json                     # スキーマ定義（JSON）
 ├── index.html                           # ドキュメント一覧
 ├── swagger.html                         # Swagger UI
@@ -92,7 +91,7 @@ docker-compose up -d
 
 ### 2. DB設計書 (`docs/schema/`)
 - テーブル定義書（Markdown）
-- ER図（SVG）
+- ER図（mermaid）
 - スキーマ定義（JSON）
 - Flywayで管理されたマイグレーションスクリプトから自動生成
 
