@@ -1,7 +1,7 @@
 package com.example.presentation;
 
 import com.example.application.ViewPokemonAllUseCase;
-import com.example.presentation.response.PokemonResponse;
+import com.example.presentation.resource.PokemonResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

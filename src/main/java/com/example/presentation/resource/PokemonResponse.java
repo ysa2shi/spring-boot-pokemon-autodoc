@@ -1,4 +1,4 @@
-package com.example.presentation.response;
+package com.example.presentation.resource;
 
 import com.example.domain.model.Pokemon;
 import lombok.Builder;
