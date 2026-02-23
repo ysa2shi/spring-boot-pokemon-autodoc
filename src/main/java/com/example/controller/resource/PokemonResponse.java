@@ -1,4 +1,4 @@
-package com.example.presentation.resource;
+package com.example.controller.resource;
 
 import com.example.domain.model.Pokemon;
 import io.swagger.v3.oas.annotations.media.Schema;
