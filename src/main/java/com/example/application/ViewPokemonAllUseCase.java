@@ -1,7 +1,7 @@
-package com.example.usecase;
+package com.example.application;
 
 import com.example.domain.repository.PokemonRepository;
-import com.example.controller.resource.PokemonResponse;
+import com.example.presentation.resource.PokemonResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

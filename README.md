@@ -27,11 +27,11 @@ Spring BootでのAPI開発において、データベース設計書とAPI設計
 ```
 src/main/java/com/example/
 ├── PokemonAutoDocApplication.java      # Spring Bootエントリーポイント
-├── controller/                        # API層（REST Controller）
+├── presentation/                        # API層（REST Controller）
 │   ├── PokemonController.java           # ポケモンAPI
 │   └── resource/
 │       └── PokemonResponse.java         # APIレスポンス DTO
-├── usecase/                         # ユースケース層
+├── application/                         # ユースケース層
 │   └── ViewPokemonAllUseCase.java       # ポケモン全件取得用ユースケース
 ├── domain/                              # ドメイン層
 │   ├── model/
@@ -106,7 +106,7 @@ docker-compose up -d
 
 ## 💡 実装のポイント
 
-- **クリーンアーキテクチャ**: controller / usecase / domain / infrastructure に分離
+- **クリーンアーキテクチャ**: presentation / application / domain / infrastructure に分離
 - **ドメイン駆動設計**: 値オブジェクト（VO）を活用した型安全性
 - **自動化**: CI/CD連携により、スキーマ/API仕様の更新を自動追跡
 

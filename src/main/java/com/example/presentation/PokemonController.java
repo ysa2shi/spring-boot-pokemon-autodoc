@@ -1,7 +1,7 @@
-package com.example.controller;
+package com.example.presentation;
 
-import com.example.usecase.ViewPokemonAllUseCase;
-import com.example.controller.resource.PokemonResponse;
+import com.example.application.ViewPokemonAllUseCase;
+import com.example.presentation.resource.PokemonResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
